@@ -3,7 +3,7 @@
 %%% option passed to the outer theme
 %    progressstyle=fixedCircCnt,   % fixedCircCnt, movingCircCnt (moving is deault)
   ]{Feather}
-  
+
 % If you want to change the colors of the various elements in the theme, edit and uncomment the following lines
 
 % Change the bar colors:
@@ -42,24 +42,24 @@
 
 \title[] % [] is optional - is placed on the bottom of the sidebar on every slide
 { % is placed on the title page
-      \textbf{The Feather Beamer Theme}
+      \textbf{Active Learning}
 }
 
-\subtitle[The Feather Beamer Theme]
+\subtitle[Active Learning]
 {
-      \textbf{v. 1.0.0}
+      \textbf{a practical introduction}
 }
 
-\author[Lilyana Vankova]
-{      Lilyana Vankova \\
-      {\ttfamily lilqna.v@gmail.com}
+\author[Charles I. Saidu]
+{      Charles Isah Saidu \\
+      {\ttfamily charles.i.saidu@gmail.com}
 }
 
 \institute[]
 {
-      Faculty of Mathematics, Informatics and Information Technologies\\
-      Plovdiv University ``Paisii Hilendarski''\\
-  
+      Department of Computer Science, African University of Science and Technology,\\
+      Abuja, Nigeria ``AUST''\\
+
   %there must be an empty line above this line - otherwise some unwanted space is added between the university and the country (I do not know why;( )
 }
 
@@ -89,12 +89,12 @@
 \section{Introduction}
 %-------------------------------------------------------
 \subsection{License}
-\begin{frame}{Introduction}{License}
+\begin{frame}{Introduction}{What is it?}
 %-------------------------------------------------------
 
   \begin{itemize}
     \item<1-> The Feather image is not covered by copyright rules. I have used the image from \chref{http://www.vectors-free.com/}{http://www.vectors-free.com/}. You are allowed to use the Feather image for any purposes.
-    \item<2-> The rest of the theme is provided under the GNU General Public License v. 3 (GPLv3) \chref{http://www.gnu.org/licenses/}{http://www.gnu.org/licenses/}. This means that you can redistribute it and/or modify it under the same license. 
+    \item<2-> The rest of the theme is provided under the GNU General Public License v. 3 (GPLv3) \chref{http://www.gnu.org/licenses/}{http://www.gnu.org/licenses/}. This means that you can redistribute it and/or modify it under the same license.
   \end{itemize}
 \end{frame}
 
@@ -123,20 +123,20 @@ The theme contains 4 source files:
   The theme can be installed for \textbf{local} or \textbf{global} use.
   \pause
   \begin{block}{Local Installation}
-  \begin{itemize}    
-    \item Local installation is the simplest way of installing the theme. 
+  \begin{itemize}
+    \item Local installation is the simplest way of installing the theme.
     \item You need to placing the 4 source files in the same folder as your presentation. When you download the theme, the 4 theme files are located in the {\tt local} folder.
   \end{itemize}
   \end{block}
 
   \begin{block}{Global Installation}
   \begin{itemize}
-     \item If you wish to make the theme globally available, you must put the files in your local latex directory tree. The location of the root of the local directory tree depends on your operating system and the latex distribution. 
+     \item If you wish to make the theme globally available, you must put the files in your local latex directory tree. The location of the root of the local directory tree depends on your operating system and the latex distribution.
      \item Detailed steps on how to proceed installation under various operating systems can be found at Beamer documentation.
   \end{itemize}
   \end{block}
 \end{frame}
-     
+
 
 %-------------------------------------------------------
 \subsection{Required Packages}
@@ -158,13 +158,13 @@ The theme contains 4 source files:
 %-------------------------------------------------------
 
   \begin{block}{The Presentation Theme}
-    The Feather Theme can be loaded in a familiar way. In the reamble of your {\tt tex} file you must type\\ \vspace{5pt} 
-    {\tt \textbackslash usetheme[<options>]\{Feather\}}\\ \vspace{5pt} 
+    The Feather Theme can be loaded in a familiar way. In the reamble of your {\tt tex} file you must type\\ \vspace{5pt}
+    {\tt \textbackslash usetheme[<options>]\{Feather\}}\\ \vspace{5pt}
     The presentation theme loads the inner, outer and color Feather theme files and passes the {\tt <options>} on to these files.
   \end{block}
   \begin{block}{The Inner and Outher Themes}
-    If you wish you can load only the inner, or the outher theme directly by\\ \vspace{5pt} 
-    {\tt \textbackslash useinnertheme\{Feather\}} (and it has no options)\\ \vspace{5pt} 
+    If you wish you can load only the inner, or the outher theme directly by\\ \vspace{5pt}
+    {\tt \textbackslash useinnertheme\{Feather\}} (and it has no options)\\ \vspace{5pt}
     {\tt \textbackslash useoutertheme[<options>]\{Feather\}} (it has one option)\\
     \hspace{20pt}{\tt progressstyle=\{fixedCircCnt or movingCircCnt\}} \\
     \begin{itemize}
@@ -177,36 +177,36 @@ The theme contains 4 source files:
 \begin{frame}{User Interface}{Loading the Theme and Theme Options}
 
   \begin{block}{The Color Theme}
-    Also you can load only the color theme by writing in the preamble of the {\tt tex} file 
-    
-    \vspace{5pt} 
-    
+    Also you can load only the color theme by writing in the preamble of the {\tt tex} file
+
+    \vspace{5pt}
+
     \begin{itemize}
     \item {\tt \textbackslash usecolortheme\{Feather\}}
     \end{itemize}
-    
+
     \vspace{5pt}
-    
+
     ...or to change the colors of the various elements in the theme
-    
-    \vspace{5pt} 
+
+    \vspace{5pt}
     \begin{itemize}
-    \item Change the bar colors: \\    
+    \item Change the bar colors: \\
     {\tt \textbackslash setbeamercolor \{Feather\}\{fg=<color>, bg=<color>\}}
-    
-    \vspace{2pt} 
-    
-    \item Change the color of the structural elements: \\    
+
+    \vspace{2pt}
+
+    \item Change the color of the structural elements: \\
     {\tt \textbackslash setbeamercolor\{structure\}\{fg=<color>\}}
-    
-    \vspace{2pt} 
-    
+
+    \vspace{2pt}
+
     \item Change the frame title text color:\\
     {\tt \textbackslash setbeamercolor\{frametitle\}\{fg=<color>\}}
-    
-    \vspace{2pt} 
-    
-    \item Change the normal text color background:    
+
+    \vspace{2pt}
+
+    \item Change the normal text color background:
     {\tt \textbackslash setbeamercolor\{normal text\}\{fg=<color>, bg=<color>\}}
     \end{itemize}
   \end{block}
@@ -220,12 +220,12 @@ The theme contains 4 source files:
 
 \begin{block}{The Feather Background Image}
     \begin{itemize}
-    \item In Feather theme, the title page frame and the last frame have the Feather image as the background image. 
+    \item In Feather theme, the title page frame and the last frame have the Feather image as the background image.
     \item The Feather background image can be produced to any frame by wrating on the begining at the choosen frame the following
-    \end{itemize} 
-    
-    \vspace{5pt} 
-    
+    \end{itemize}
+
+    \vspace{5pt}
+
   {\tt \{\textbackslash 1bg\\
     \textbackslash begin\{frame\}[<options>]\{Frame Title\}\{Frame Subtitle\}\\
     \ldots\\
