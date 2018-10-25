@@ -88,20 +88,29 @@
 %-------------------------------------------------------
 \section{Introduction}
 %-------------------------------------------------------
-\subsection{License}
+\subsection{What is Active Learning?}
 \begin{frame}{Introduction}{What is it?}
 %-------------------------------------------------------
-
+  \begin{figure}\label{fig1:active_learning}
+\caption{Active Learning \cite{Settles2010}}
+  \includegraphics[width = 8cm, height=5cm]{active_learning}
+  \end{figure}
   \begin{itemize}
-    \item<1-> The Feather image is not covered by copyright rules. I have used the image from \chref{http://www.vectors-free.com/}{http://www.vectors-free.com/}. You are allowed to use the Feather image for any purposes.
-    \item<2-> The rest of the theme is provided under the GNU General Public License v. 3 (GPLv3) \chref{http://www.gnu.org/licenses/}{http://www.gnu.org/licenses/}. This means that you can redistribute it and/or modify it under the same license.
+    \item<1-> The learning algorithm chooses the samples to be labeled  image for any purposes.
+    \item<2-> Goal/(s): To reduce the number of labeled examples needed for learning.
   \end{itemize}
 \end{frame}
+\subsection{Informativeness}
+\begin{frame}{Informativeness}
+  \begin{itemize}
+  \item How does the algorithm know what sample to select a.k.a Querying Techniques?
+\end{itemize}
+\end{frame}{Informativeness}
 
+%----------{Informativeness}---------------------------------------------
+\section{Active learning using Libact Library}
 %-------------------------------------------------------
-\section{Installation}
-%-------------------------------------------------------
-\subsection{Source files}
+\subsection{Installation}
 \begin{frame}{Installation}{Source files}
 %-------------------------------------------------------
 
@@ -116,8 +125,20 @@ The theme contains 4 source files:
 \end{block}
 \end{frame}
 
+\subsection{Required Packages}
+\begin{frame}{Installation}{Required Packages}
 %-------------------------------------------------------
-\subsection{Local and Global installation}
+
+  For using the Feather Theme you will need the Bemaer class installed and the following 2 packages
+  \begin{itemize}
+    \item TikZ\footnote{TikZ is a package for creating beautiful graphics. Have a look at these \chref{http://www.texample.net/tikz/examples/}{online examples} or the \chref{http://tug.ctan.org/tex-archive/graphics/pgf/base/doc/generic/pgf/pgfmanual.pdf}{pgf user manual}.}
+    \item calc
+  \end{itemize}
+  Due to the fact that the packages are very common they should be included in your latex distribution in the first place.
+\end{frame}
+
+%-------------------------------------------------------
+\subsection{Demo: using sample dataset}
 \begin{frame}{Installation}{Local and Global installation}
 %-------------------------------------------------------
   The theme can be installed for \textbf{local} or \textbf{global} use.
@@ -139,104 +160,99 @@ The theme contains 4 source files:
 
 
 %-------------------------------------------------------
-\subsection{Required Packages}
-\begin{frame}{Installation}{Required Packages}
-%-------------------------------------------------------
 
-  For using the Feather Theme you will need the Bemaer class installed and the following 2 packages
-  \begin{itemize}
-    \item TikZ\footnote{TikZ is a package for creating beautiful graphics. Have a look at these \chref{http://www.texample.net/tikz/examples/}{online examples} or the \chref{http://tug.ctan.org/tex-archive/graphics/pgf/base/doc/generic/pgf/pgfmanual.pdf}{pgf user manual}.}
-    \item calc
-  \end{itemize}
-  Due to the fact that the packages are very common they should be included in your latex distribution in the first place.
+%-------------------------------------------------------
+% \section{User Interface}
+% \subsection{Loading the Theme and Theme Options}
+% \begin{frame}{User Interface}{Loading the Theme and Theme Options}
+% %-------------------------------------------------------
+%
+%   \begin{block}{The Presentation Theme}
+%     The Feather Theme can be loaded in a familiar way. In the reamble of your {\tt tex} file you must type\\ \vspace{5pt}
+%     {\tt \textbackslash usetheme[<options>]\{Feather\}}\\ \vspace{5pt}
+%     The presentation theme loads the inner, outer and color Feather theme files and passes the {\tt <options>} on to these files.
+%   \end{block}
+%   \begin{block}{The Inner and Outher Themes}
+%     If you wish you can load only the inner, or the outher theme directly by\\ \vspace{5pt}
+%     {\tt \textbackslash useinnertheme\{Feather\}} (and it has no options)\\ \vspace{5pt}
+%     {\tt \textbackslash useoutertheme[<options>]\{Feather\}} (it has one option)\\
+%     \hspace{20pt}{\tt progressstyle=\{fixedCircCnt or movingCircCnt\}} \\
+%     \begin{itemize}
+%     \item which set how the progress is illustrated;
+%     \item the value {\tt movingCircCnt} is the default.
+%     \end{itemize}
+%   \end{block}
+% \end{frame}
+%
+% \begin{frame}{User Interface}{Loading the Theme and Theme Options}
+%
+%   \begin{block}{The Color Theme}
+%     Also you can load only the color theme by writing in the preamble of the {\tt tex} file
+%
+%     \vspace{5pt}
+%
+%     \begin{itemize}
+%     \item {\tt \textbackslash usecolortheme\{Feather\}}
+%     \end{itemize}
+%
+%     \vspace{5pt}
+%
+%     ...or to change the colors of the various elements in the theme
+%
+%     \vspace{5pt}
+%     \begin{itemize}
+%     \item Change the bar colors: \\
+%     {\tt \textbackslash setbeamercolor \{Feather\}\{fg=<color>, bg=<color>\}}
+%
+%     \vspace{2pt}
+%
+%     \item Change the color of the structural elements: \\
+%     {\tt \textbackslash setbeamercolor\{structure\}\{fg=<color>\}}
+%
+%     \vspace{2pt}
+%
+%     \item Change the frame title text color:\\
+%     {\tt \textbackslash setbeamercolor\{frametitle\}\{fg=<color>\}}
+%
+%     \vspace{2pt}
+%
+%     \item Change the normal text color background:
+%     {\tt \textbackslash setbeamercolor\{normal text\}\{fg=<color>, bg=<color>\}}
+%     \end{itemize}
+%   \end{block}
+% \end{frame}
+%
+%
+% %-------------------------------------------------------
+% \subsection{Feather image}
+% \begin{frame}{User Interface}{The Feather Background Image}
+% %-------------------------------------------------------
+%
+% \begin{block}{The Feather Background Image}
+%     \begin{itemize}
+%     \item In Feather theme, the title page frame and the last frame have the Feather image as the background image.
+%     \item The Feather background image can be produced to any frame by wrating on the begining at the choosen frame the following
+%     \end{itemize}
+%
+%     \vspace{5pt}
+%
+%   {\tt \{\textbackslash 1bg\\
+%     \textbackslash begin\{frame\}[<options>]\{Frame Title\}\{Frame Subtitle\}\\
+%     \ldots\\
+%     \textbackslash end\{frame\}\}}
+% \end{block}
+% \end{frame}
+
+
+\begin{frame}{References}
+   \bibliographystyle{abbrvnat}
+  \bibliography{references}
 \end{frame}
-
-%-------------------------------------------------------
-\section{User Interface}
-\subsection{Loading the Theme and Theme Options}
-\begin{frame}{User Interface}{Loading the Theme and Theme Options}
-%-------------------------------------------------------
-
-  \begin{block}{The Presentation Theme}
-    The Feather Theme can be loaded in a familiar way. In the reamble of your {\tt tex} file you must type\\ \vspace{5pt}
-    {\tt \textbackslash usetheme[<options>]\{Feather\}}\\ \vspace{5pt}
-    The presentation theme loads the inner, outer and color Feather theme files and passes the {\tt <options>} on to these files.
-  \end{block}
-  \begin{block}{The Inner and Outher Themes}
-    If you wish you can load only the inner, or the outher theme directly by\\ \vspace{5pt}
-    {\tt \textbackslash useinnertheme\{Feather\}} (and it has no options)\\ \vspace{5pt}
-    {\tt \textbackslash useoutertheme[<options>]\{Feather\}} (it has one option)\\
-    \hspace{20pt}{\tt progressstyle=\{fixedCircCnt or movingCircCnt\}} \\
-    \begin{itemize}
-    \item which set how the progress is illustrated;
-    \item the value {\tt movingCircCnt} is the default.
-    \end{itemize}
-  \end{block}
-\end{frame}
-
-\begin{frame}{User Interface}{Loading the Theme and Theme Options}
-
-  \begin{block}{The Color Theme}
-    Also you can load only the color theme by writing in the preamble of the {\tt tex} file
-
-    \vspace{5pt}
-
-    \begin{itemize}
-    \item {\tt \textbackslash usecolortheme\{Feather\}}
-    \end{itemize}
-
-    \vspace{5pt}
-
-    ...or to change the colors of the various elements in the theme
-
-    \vspace{5pt}
-    \begin{itemize}
-    \item Change the bar colors: \\
-    {\tt \textbackslash setbeamercolor \{Feather\}\{fg=<color>, bg=<color>\}}
-
-    \vspace{2pt}
-
-    \item Change the color of the structural elements: \\
-    {\tt \textbackslash setbeamercolor\{structure\}\{fg=<color>\}}
-
-    \vspace{2pt}
-
-    \item Change the frame title text color:\\
-    {\tt \textbackslash setbeamercolor\{frametitle\}\{fg=<color>\}}
-
-    \vspace{2pt}
-
-    \item Change the normal text color background:
-    {\tt \textbackslash setbeamercolor\{normal text\}\{fg=<color>, bg=<color>\}}
-    \end{itemize}
-  \end{block}
-\end{frame}
-
-
-%-------------------------------------------------------
-\subsection{Feather image}
-\begin{frame}{User Interface}{The Feather Background Image}
-%-------------------------------------------------------
-
-\begin{block}{The Feather Background Image}
-    \begin{itemize}
-    \item In Feather theme, the title page frame and the last frame have the Feather image as the background image.
-    \item The Feather background image can be produced to any frame by wrating on the begining at the choosen frame the following
-    \end{itemize}
-
-    \vspace{5pt}
-
-  {\tt \{\textbackslash 1bg\\
-    \textbackslash begin\{frame\}[<options>]\{Frame Title\}\{Frame Subtitle\}\\
-    \ldots\\
-    \textbackslash end\{frame\}\}}
-\end{block}
-\end{frame}
-
 
 {\1
 \begin{frame}[plain,noframenumbering]
-  \finalpage{Thank you for using Feather Beamer Theme!}
+  \finalpage{Thank you for your attention!}
 \end{frame}}
+
 
 \end{document}
